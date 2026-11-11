@@ -25,7 +25,6 @@ public class PersonaDAO {
         }
     }
 
-    // CREAR
     public boolean crear(Persona p) {
         String sql = "INSERT INTO persona (id, nombre, telefono) VALUES (?, ?, ?)";
         try (Connection c = conectar(); PreparedStatement ps = c.prepareStatement(sql)) {
@@ -40,7 +39,6 @@ public class PersonaDAO {
         }
     }
 
-    // CONSULTAR: criterio = "id", "nombre" o "telefono"
     public List<Persona> buscar(String criterio, String valor) {
         List<Persona> lista = new ArrayList<>();
         String sql;
@@ -84,7 +82,6 @@ public class PersonaDAO {
         return lista;
     }
 
-    // ACTUALIZAR (por id, que es único)
     public boolean actualizar(Persona p) {
         String sql = "UPDATE persona SET nombre = ?, telefono = ? WHERE id = ?";
         try (Connection c = conectar(); PreparedStatement ps = c.prepareStatement(sql)) {
@@ -98,7 +95,6 @@ public class PersonaDAO {
         }
     }
 
-    // ELIMINAR (por id, que es único)
     public boolean eliminar(int id) {
         String sql = "DELETE FROM persona WHERE id = ?";
         try (Connection c = conectar(); PreparedStatement ps = c.prepareStatement(sql)) {

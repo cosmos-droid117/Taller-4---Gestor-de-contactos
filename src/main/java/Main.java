@@ -8,7 +8,6 @@ public class Main {
 
     private static final String CANCELAR = "cancelar";
 
-    // Se lanza cuando el usuario escribe "cancelar" en cualquier pregunta
     private static class CancelarException extends RuntimeException {}
 
     public static void main(String[] args) {
@@ -40,7 +39,6 @@ public class Main {
         } while (opcion != 0);
     }
 
-    // ---------- Opciones del menú ----------
 
     private static void crear() {
         int id = leerEntero("ID: ", 1);
@@ -81,8 +79,6 @@ public class Main {
         }
     }
 
-    // ---------- Búsqueda ----------
-
     private static List<Persona> buscarPorCriterio() {
         System.out.println("Buscar por: 1. ID  2. Nombre  3. Teléfono");
         int op;
@@ -101,7 +97,6 @@ public class Main {
         }
     }
 
-    // Para actualizar/eliminar: si hay varias coincidencias, se elige por ID
     private static Persona seleccionarContacto() {
         List<Persona> resultado = buscarPorCriterio();
         if (resultado.isEmpty()) {
@@ -130,9 +125,6 @@ public class Main {
         for (Persona p : lista) System.out.println(p);
     }
 
-    // ---------- Lectura y validación de datos ----------
-
-    // Lee una línea; si el usuario escribe "cancelar" lanza la excepción
     private static String leerLinea(String mensaje) {
         System.out.print(mensaje);
         String texto = sc.nextLine().trim();
@@ -142,7 +134,6 @@ public class Main {
         return texto;
     }
 
-    // Entero mayor o igual a 'minimo'. Repite hasta que sea válido.
     private static int leerEntero(String mensaje, int minimo) {
         while (true) {
             String texto = leerLinea(mensaje);
@@ -156,8 +147,7 @@ public class Main {
         }
     }
 
-    // Solo letras (con tildes y ñ) y espacios entre palabras.
-    // Si permitirVacio es true, Enter devuelve "" (sirve para conservar el valor al actualizar).
+
     private static String leerNombre(String mensaje, boolean permitirVacio) {
         while (true) {
             String texto = leerLinea(mensaje);
@@ -172,7 +162,6 @@ public class Main {
         }
     }
 
-    // Solo dígitos, entre 7 y 15.
     private static String leerTelefono(String mensaje, boolean permitirVacio) {
         while (true) {
             String texto = leerLinea(mensaje);
