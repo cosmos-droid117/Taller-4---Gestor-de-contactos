@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class main {
     private static final Scanner sc = new Scanner(System.in);
     private static final PersonaDAO dao = new PersonaDAO();
 
